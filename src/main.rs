@@ -1,6 +1,7 @@
 mod december_1;
-use december_1::run;
+mod december_2;
 
 fn main() {
-  run();
+  december_1::run();
+  december_2::run();
 }

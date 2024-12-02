@@ -61,5 +61,5 @@ pub fn run() {
     final_total += (number - right_numbers[i]).abs(); // <-- cool method that removes the sign on negatives
   }
   
-  println!("Total: {}", final_total);
+  println!("December 1 Answer: {}", final_total);
 }
