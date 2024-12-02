@@ -5,4 +5,5 @@ fn main() {
   december_1::part_1();
   december_1::part_2();
   december_2::part_1();
+  december_2::part_2();
 }
