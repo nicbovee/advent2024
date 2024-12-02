@@ -1,4 +1,3 @@
-pub fn run(){
-
-  println!("December 2 Answer:")
+pub fn part_1(){
+  println!("December 2 Answer:{}", "answer");
 }

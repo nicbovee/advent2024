@@ -1,7 +1,7 @@
 // Since I'm new to Rust, I'll leave comments on some things I either forgot about or learned for the first time.
 
 use std::fs::File;
-
+use std::collections::HashMap;
 use std::io::{self, BufRead};// <-- this was really confusing to me. 
 // I need `self` because I call io on line 10 (could also have imported it on it's own line as std::io) 
 // I need `BufRead` because I call `lines()` on line 15. I guess this is because that method only can be called if 
@@ -13,7 +13,7 @@ use std::io::{self, BufRead};// <-- this was really confusing to me.
 // going to give me. I had been working without the rust analyzer so once I added that
 // it was easier to see what methods were available through traits and auto-import them.
 
-pub fn run() {
+pub fn part_1() {
   let file = File::open("src/december_1_input.txt").expect("should have read the file");
   let reader = io::BufReader::new(file);
   let mut left_numbers = Vec::new();
@@ -62,4 +62,43 @@ pub fn run() {
   }
   
   println!("December 1 Answer: {}", final_total);
+}
+pub fn part_2(){
+  let file = File::open("src/december_1_input.txt").expect("should have read the file");
+  let reader = io::BufReader::new(file);
+  let mut left_numbers = Vec::new();
+  let mut right_numbers = Vec::new();
+
+  for line in reader.lines().flatten(){
+    let parts: Vec<&str> = line.split_whitespace().collect();
+
+    if parts.len() == 2 {
+      if let Ok(left) = parts[0].parse::<i32>() {
+        left_numbers.push(left);
+      }
+
+      if let Ok(right) = parts[1].parse::<i32>()
+      {
+        right_numbers.push(right);
+      }
+    }
+  }
+
+
+  left_numbers.sort();
+  right_numbers.sort();
+
+  let mut count_map: HashMap<i32, i32> = HashMap::new();
+  let mut final_total = 0;
+
+  for &right_num in &right_numbers {
+    *count_map.entry(right_num).or_insert(0) += 1;
+  }
+  
+  for &left_num in &left_numbers {
+    let count = count_map.get(&left_num).unwrap_or(&0);
+    final_total += &left_num * count;
+  }
+
+  println!("December 2 Answer:{}", final_total);
 }
