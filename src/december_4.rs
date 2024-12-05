@@ -112,7 +112,7 @@ pub fn part_1(){
     total += find_xmas(&column.join(""));
   }
 
-  println!("December 3 part 1 answer: {}", total);
+  println!("December 4 part 1 answer: {}", total);
 }
 
 pub fn part_2(){
@@ -151,5 +151,5 @@ pub fn part_2(){
       }
     }
   }
-  println!("December 3 part 2 answer: {}", total);
+  println!("December 4 part 2 answer: {}", total);
 }
