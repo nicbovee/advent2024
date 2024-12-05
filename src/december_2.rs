@@ -92,7 +92,7 @@ pub fn part_1() {
         .collect::<Vec<i32>>())
   .filter(|parts| is_safe(parts)).count() as i32;
 
-  println!("December 2 Answer:{}", answer);
+  println!("December 2 part 1 answer:{}", answer);
 }
 
 // after getting stumpped on part 2 I leaned on this
@@ -111,6 +111,6 @@ pub fn part_2(){
         .collect::<Vec<i32>>())
   .filter(|parts| use_dampener(parts)).count() as i32;
 
-  println!("December 2 Answer:{}", answer);
+  println!("December 2 part 2 answer:{}", answer);
 
 }

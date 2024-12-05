@@ -61,7 +61,7 @@ pub fn part_1() {
     final_total += (number - right_numbers[i]).abs(); // <-- cool method that removes the sign on negatives
   }
   
-  println!("December 1 Answer: {}", final_total);
+  println!("December 1 part 1 answer: {}", final_total);
 }
 pub fn part_2(){
   let file = File::open("src/december_1_input.txt").expect("should have read the file");
@@ -100,5 +100,5 @@ pub fn part_2(){
     final_total += &left_num * count;
   }
 
-  println!("December 2 Answer:{}", final_total);
+  println!("December 2 part 2 answer:{}", final_total);
 }
